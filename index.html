@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngô Hoàng Vẹn — Graphic Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --card: #1e1e1e;
+    --border: rgba(255,255,255,0.08);
+    --text: #f0ece4;
+    --muted: #888;
+    --accent: #e8c97a;
+    --accent2: #c47a3a;
+    --toggle-bg: #1e1e1e;
+    --toggle-border: rgba(255,255,255,0.15);
+  }
+  [data-theme="light"] {
+    --bg: #faf8f4;
+    --surface: #f0ece4;
+    --card: #ffffff;
+    --border: rgba(0,0,0,0.08);
+    --text: #1a1a1a;
+    --muted: #777;
+    --accent: #b8860b;
+    --accent2: #8b5e0a;
+    --toggle-bg: #fff;
+    --toggle-border: rgba(0,0,0,0.12);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.4s, color 0.4s;
+    overflow-x: hidden;
+  }
+
+  /* ── THEME TOGGLE ── */
+  .topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 2rem;
+    backdrop-filter: blur(12px);
+    background: rgba(13,13,13,0.6);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.4s;
+  }
+  [data-theme="light"] .topbar {
+    background: rgba(250,248,244,0.85);
+  }
+  .theme-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    border: 1px solid var(--toggle-border);
+    background: var(--toggle-bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 0.03em;
+  }
+  .theme-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .theme-icon { font-size: 15px; }
+
+  /* ── NAV DOTS ── */
+  .nav-dots {
+    position: fixed;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .nav-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--muted);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .nav-dot.active { background: var(--accent); transform: scale(1.6); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 6rem 10% 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,201,122,0.06) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    pointer-events: none;
+  }
+  .hero-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-tag::before {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 1px;
+    background: var(--accent);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-desc {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 480px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    border-left: 2px solid var(--accent);
+    padding-left: 1rem;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 32px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 100px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    z-index: 0;
+  }
+  .hero-cta:hover::before { transform: translateX(0); }
+  .hero-cta:hover { color: #0d0d0d; }
+  .hero-cta span { position: relative; z-index: 1; }
+  .hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px; height: 48px;
+    background: linear-gradient(to bottom, transparent, var(--muted));
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  /* ── SECTION ── */
+  section {
+    padding: 6rem 10%;
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 3rem;
+    line-height: 1.1;
+  }
+  .divider {
+    width: 40px; height: 2px;
+    background: var(--accent);
+    margin-bottom: 3rem;
+  }
+
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  .project-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--card);
+    transition: transform 0.4s, border-color 0.3s;
+    cursor: default;
+  }
+  .project-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+  }
+  .project-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    background: var(--surface);
+  }
+  .project-img-placeholder {
+    width: 100%;
+    height: 220px;
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    position: relative;
+    overflow: hidden;
+  }
+  .p1-bg { background: linear-gradient(135deg, #1a0e2e 0%, #2d1a4a 40%, #1e2a1a 100%); }
+  .p2-bg { background: linear-gradient(135deg, #0e1a2e 0%, #1a2d4a 40%, #0e2220 100%); }
+  .p3-bg { background: linear-gradient(135deg, #2e1a0e 0%, #4a2d1a 40%, #2a2010 100%); }
+  .placeholder-art {
+    font-size: 48px;
+    opacity: 0.7;
+  }
+  .placeholder-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+  }
+  /* decorative shapes inside placeholders */
+  .shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
+  }
+  .shape-1 { width:120px;height:120px;background:var(--accent);top:-30px;right:-20px; }
+  .shape-2 { width:60px;height:60px;background:#fff;bottom:20px;left:20px; }
+  .shape-3 { width:80px;height:80px;background:var(--accent);top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.08; }
+
+  .project-body { padding: 1.5rem; }
+  .project-num {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+  }
+  .project-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+  .project-desc {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .project-role {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent);
+    background: rgba(232,201,122,0.08);
+    padding: 4px 12px;
+    border-radius: 100px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── SKILLS ── */
+  .skills-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+  @media(max-width:768px) { .skills-layout { grid-template-columns: 1fr; gap: 2rem; } }
+  .skill-item {
+    margin-bottom: 1.8rem;
+  }
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .skill-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  .stars {
+    display: flex;
+    gap: 4px;
+  }
+  .star {
+    font-size: 12px;
+    color: var(--accent);
+  }
+  .star.empty { color: var(--border); }
+  .skill-bar-bg {
+    height: 2px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--accent), var(--accent2));
+    border-radius: 2px;
+    transform-origin: left;
+    animation: fillBar 1.2s ease forwards;
+  }
+  @keyframes fillBar {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  .exp-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .exp-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+  .exp-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: var(--surface);
+    border-radius: 24px;
+    padding: 4rem;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+  .contact-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+  .contact-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.875rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s;
+    background: var(--card);
+  }
+  .contact-item:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .contact-icon { font-size: 16px; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem 10%;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── FADE IN ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">
+    <span class="theme-icon" id="themeIcon">☀️</span>
+    <span id="themeLabel">Light Mode</span>
+  </button>
+</div>
+
+<!-- NAV DOTS -->
+<div class="nav-dots">
+  <div class="nav-dot active" onclick="scrollToSection(0)" title="Trang chủ"></div>
+  <div class="nav-dot" onclick="scrollToSection(1)" title="Dự án"></div>
+  <div class="nav-dot" onclick="scrollToSection(2)" title="Kỹ năng"></div>
+  <div class="nav-dot" onclick="scrollToSection(3)" title="Liên hệ"></div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="sec-0">
+  <div>
+    <div class="hero-tag">Graphic Designer</div>
+    <h1>Ngô<br><em>Hoàng Vẹn</em></h1>
+    <p class="hero-desc">"Biến ý tưởng thành hình ảnh –<br>sáng tạo không giới hạn."</p>
+    <a href="#sec-1" class="hero-cta">
+      <span>Xem dự án</span>
+      <span>→</span>
+    </a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="sec-1">
+  <div class="fade-in">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">Dự Án Nổi Bật</h2>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card fade-in">
+      <div class="project-img-placeholder p1-bg">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="placeholder-art">🎨</div>
+        <div class="placeholder-label">Thêm ảnh của bạn vào đây</div>
+      </div>
+      <div class="project-body">
+        <div class="project-num">Project 01</div>
+        <div class="project-name">Poster Quảng Cáo</div>
+        <p class="project-desc">Thiết kế poster quảng cáo sản phẩm với phong cách hiện đại, kết hợp typography sắc nét và layout ấn tượng.</p>
+        <span class="project-role">🎯 Lên ý tưởng · Thiết kế · Chỉnh sửa</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-img-placeholder p2-bg">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="placeholder-art">📱</div>
+        <div class="placeholder-label">Thêm ảnh của bạn vào đây</div>
+      </div>
+      <div class="project-body">
+        <div class="project-num">Project 02</div>
+        <div class="project-name">Banner Mạng Xã Hội</div>
+        <p class="project-desc">Thiết kế banner cho Facebook & Instagram — tối ưu kích thước, màu sắc bắt mắt, tăng engagement hiệu quả.</p>
+        <span class="project-role">✏️ Thiết kế chính</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-img-placeholder p3-bg">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="placeholder-art">✨</div>
+        <div class="placeholder-label">Thêm ảnh của bạn vào đây</div>
+      </div>
+      <div class="project-body">
+        <div class="project-num">Project 03</div>
+        <div class="project-name">Sticker Zalo</div>
+        <p class="project-desc">Bộ sticker cảm xúc dễ thương, sáng tạo và giàu biểu cảm — phù hợp cho mọi cuộc trò chuyện.</p>
+        <span class="project-role">🌟 Thiết kế · Sáng tạo biểu cảm</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="sec-2" style="background: var(--surface);">
+  <div class="fade-in">
+    <div class="section-label">Năng lực</div>
+    <h2 class="section-title">Kỹ Năng & Kinh Nghiệm</h2>
+  </div>
+  <div class="skills-layout">
+    <div class="fade-in">
+      <div style="font-size:0.8rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;">Công cụ & Kỹ năng</div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">Photoshop</span>
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span>
+          </div>
+        </div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">Illustrator</span>
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span><span class="star empty">★</span>
+          </div>
+        </div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:60%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">Sáng tạo</span>
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+        </div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:100%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">Teamwork</span>
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span>
+          </div>
+        </div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+      </div>
+    </div>
+
+    <div class="fade-in">
+      <div style="font-size:0.8rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;">Kinh nghiệm</div>
+      <ul class="exp-list">
+        <li class="exp-item">
+          <div class="exp-dot"></div>
+          <span>Phát triển các sản phẩm thiết kế phục vụ mục đích truyền thông</span>
+        </li>
+        <li class="exp-item">
+          <div class="exp-dot"></div>
+          <span>Có khả năng tư duy hình ảnh và xây dựng concept sáng tạo</span>
+        </li>
+        <li class="exp-item">
+          <div class="exp-dot"></div>
+          <span>Làm việc độc lập và quản lý thời gian hiệu quả</span>
+        </li>
+        <li class="exp-item">
+          <div class="exp-dot"></div>
+          <span>Có kinh nghiệm chỉnh sửa và tối ưu hình ảnh</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="sec-3">
+  <div class="contact-section fade-in">
+    <div class="section-label">Liên hệ</div>
+    <h2 class="section-title" style="margin-bottom:1rem;">Hãy Cùng Hợp Tác</h2>
+    <p class="contact-tagline">"Hãy liên hệ với tôi để cùng tạo ra những sản phẩm sáng tạo và ấn tượng!"</p>
+    <div class="contact-grid">
+      <a href="mailto:ngohoangven30@gmail.com" class="contact-item">
+        <span class="contact-icon">📧</span>
+        <span>ngohoangven30@gmail.com</span>
+      </a>
+      <a href="tel:0335980544" class="contact-item">
+        <span class="contact-icon">📱</span>
+        <span>0335 980 544</span>
+      </a>
+      <a href="https://www.facebook.com/share/1KmVrADJnt/?mibextid=wwXIfr" target="_blank" class="contact-item">
+        <span class="contact-icon">📘</span>
+        <span>Facebook</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Ngô Hoàng Vẹn — Graphic Designer &nbsp;·&nbsp; Designed with passion</p>
+</footer>
+
+<script>
+  // Theme toggle
+  const html = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  const icon = document.getElementById('themeIcon');
+  const label = document.getElementById('themeLabel');
+
+  function toggleTheme() {
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    icon.textContent = isDark ? '🌙' : '☀️';
+    label.textContent = isDark ? 'Dark Mode' : 'Light Mode';
+  }
+
+  // Nav dots
+  const sections = ['sec-0','sec-1','sec-2','sec-3'];
+  const dots = document.querySelectorAll('.nav-dot');
+
+  function scrollToSection(i) {
+    document.getElementById(sections[i]).scrollIntoView({ behavior: 'smooth' });
+  }
+
+  window.addEventListener('scroll', () => {
+    let current = 0;
+    sections.forEach((id, i) => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - window.innerHeight / 2) {
+        current = i;
+      }
+    });
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  });
+
+  // Fade in on scroll
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+  faders.forEach(f => observer.observe(f));
+</script>
+</body>
+</html>
