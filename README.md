@@ -1,7 +1,7 @@
-Đường link repository: https://github.com/ngohoangven30-art/vvh.git
-Đường link website: https://github.com/
-Danh sách công cụ: Claude, ChatGPT.
-Ví dụ prompt: 
+- Đường link repository: https://github.com/ngohoangven30-art/vvh.git
+- Đường link website: https://github.com/
+- Danh sách công cụ: Claude, ChatGPT.
+- Ví dụ prompt: 
 - Bạn là một chuyên gia về UI/UX. Tạo cho tôi một portfolio đơn giãn bao gồm html + csss. Giao diện dark hoặc white. có nút thay đổi theme ở đầu trang. Thông tin cả nhân: Ngô Hoàng Vẹn, ngành nghề: thiết kế đồ họa . câu mô tả ngắn mang dấu ấn cá nhân: “Biến ý tưởng thành hình ảnh – sáng tạo không giới hạn.” Làm 3 dự án: Project 1: Poster Quảng Cáo Mô tả: Thiết kế poster quảng cáo sản phẩm với phong cách hiện đại Hình ảnh: (chèn ảnh mày làm hoặc AI) Vai trò: Lên ý tưởng, thiết kế, chỉnh sửa  Project 2: Banner Mạng Xã Hội Mô tả: Thiết kế banner cho Facebook/Instagram Hình ảnh: (chèn ảnh) Vai trò: Thiết kế chính .Project 3: Sticker Zalo Mô tả: Bộ sticker cảm xúc dễ thương Hình ảnh: (ảnh sticker mày làm) Vai trò: Thiết kế + sáng tạo biểu cảm  4. SKILLS / EXPERIENCE Kỹ năng: Photoshop: ⭐⭐⭐⭐☆ Illustrator: ⭐⭐⭐☆☆ Sáng tạo: ⭐⭐⭐⭐⭐ Teamwork: ⭐⭐⭐⭐☆ Kinh nghiệm: Phát triển các sản phẩm thiết kế phục vụ mục đích truyền thông Có khả năng tư duy hình ảnh và xây dựng concept sáng tạo Làm việc độc lập và quản lý thời gian hiệu quả Có kinh nghiệm chỉnh sửa và tối ưu hình ảnh  5. CONTACT (Liên hệ)  Email: ngohoangven30@gmail.com  SĐT: 0335980544  Facebook: https://www.facebook.com/share/1KmVrADJnt/?mibextid=wwXIfr “Hãy liên hệ với tôi để cùng tạo ra những sản phẩm sáng tạo và ấn tượng!”. Hãy tạo cho tôi một bộ prompt để agent có thể thiết kế ra website như vậy.
 - Tôi đưa ảnh cho bạn chèn vô giúp mình.
 - Hãy làm nhấn vào dự án hiển thị ảnh gốc.
