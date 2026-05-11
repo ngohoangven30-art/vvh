@@ -10,6 +10,7 @@
 - tôi muốn cái dự án poster đó khi lướt coi thì nó sẽ có hiệu ứng xuất hiện từ dưới xuất hiện lên, banner thì từ trái xuất hiện, sticker từ phải xuất hiện, còn cái email, số điện thoại, facebook xuất hiện từ dưới nền nổi lên.
 - Hãy chỉnh con trỏ chuột mặc định bằng hình cây bút.
 - Làm màn hình chờ 1-2 giây khi vào web với animation tên tôi xuát hiện cảm giác chuyên nghiệp
+- Thêm phần CV này vào cho mình.
 - Tạo số đếm animation — "50+ dự án", "2 năm kinh nghiệm", "100% khách hàng hài lòng" đếm từ 0 lên khi lướt tới.
 - Tạo nút tải CV ngay trên hero.
 - Tạo bong bóng các chấm nhỏ bay lơ lửng ở nền.
