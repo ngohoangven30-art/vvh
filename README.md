@@ -6,6 +6,7 @@
 - Đường link website: https://github.com/
 
 🤖 DANH SÁCH CÔNG CỤ AI ĐÃ SỬ DỤNG: Claude, ChatGPT.
+
 💬 VÍ DỤ PROMPT ĐÃ SỬ DỤNG:
 
   + Website portfolio cá nhân phải bao gồm tối thiểu các nội dung sau:
