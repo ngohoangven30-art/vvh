@@ -4,7 +4,7 @@
 - Ngành học: Thiết kế Đồ họa
 - Đường link repository: https://github.com/ngohoangven30-art/vvh.git
 - Đường link website: https://github.com/
-- 🤖 DANH SÁCH CÔNG CỤ AI ĐÃ SỬ DỤNG: Claude, ChatGPT.
+🤖 DANH SÁCH CÔNG CỤ AI ĐÃ SỬ DỤNG: Claude, ChatGPT.
 - 💬 VÍ DỤ PROMPT ĐÃ SỬ DỤNG: 
   + Website portfolio cá nhân phải bao gồm tối thiểu các nội dung sau:
 Phăn giới thiệu (Hero): Họ tên, vai trò nghề nghiệp, câu mô tả ngắn mang dấu ấn cá nhân;
@@ -27,7 +27,7 @@ Phăn liên hệ (Contact): thông tin liên hệ và lời kêu gọi hành đ�
   + Thêm Timeline học tập dòng thời gian thể hiện quá trình học ở sau chỗ về tôi nha, giao diện là cây cột hình chữ nhật 2024 nằm ở bên trái cột rồi tới 2025 bên phải, 2026 bên trái, 2027 bên phải, 2028 ở bên trái. khi lướt chuột thì trong cột sẽ có Cây cọ vẽ, lướt tới đâu cọ vẽ sẽ tô tới năm đó, khi vẽ sẽ ra màu xanh tím, khi lướt chuột ngược lại thì cọ vẽ sẽ xóa màu ngược lại không tô nữa, lướt chuột tới thì các năm sẽ có hiệu ứng hiện ra và lướt ngược lại các năm sẽ ẩn đi và nội dung có là: "2024 - Bắt đầu học thiết kế", "2025 - thành thạo Photoshop", "2026 thành thạo Illustrator", "2027 Thực tập doanh nghiệp", "2028 Có dự án thành công".
   + Khi rê chuột vào ảnh project thì hiện lớp overlay mờ có icon zoom + tên dự án.
   + Bạn thêm phần kỹ năng là thêm công cụ Lightroom và After Effects nha, lightroom thì 5 sao, after effcets thì 4 sao, thứ tự thì pts, ilus, light, after, sáng tạo, teamwwork nha.
-- 🛠️ MÔ TẢ QUÁ TRÌNH CHỈNH SỬA KẾT QUẢ AI: 
+🛠️ MÔ TẢ QUÁ TRÌNH CHỈNH SỬA KẾT QUẢ AI: 
 Sau khi sử dụng AI để tạo bố cục và code ban đầu cho website, em đã tiến hành chỉnh sửa lại để phù hợp hơn với phong cách cá nhân. Cụ thể, em điều chỉnh lại màu sắc từ gợi ý ban đầu sang tông xanh – tím nhằm tạo cảm giác hiện đại và đồng nhất với concept thiết kế. Ngoài ra, em bổ sung thêm các hiệu ứng hover cho button, project card và icon nhằm tăng tính tương tác cho website. Một số nội dung cũng được chỉnh sửa lại để mang tính cá nhân hóa và thể hiện rõ định hướng của bản thân trong lĩnh vực thiết kế đồ họa. Cuối cùng, em tối ưu lại bố cục tổng thể để đảm bảo tính cân đối, giúp website vừa đẹp về mặt thẩm mỹ vừa có trải nghiệm người dùng tốt hơn.
-- ✨ Ý TƯỞNG THIẾT KẾ TỔNG THỂ: 
+✨ Ý TƯỞNG THIẾT KẾ TỔNG THỂ: 
 Website được thiết kế theo phong cách hiện đại và tối giản, với màu sắc chủ đạo là gradient xanh – tím, tạo cảm giác sáng tạo, huyền ảo và mang tính công nghệ. Bố cục được xây dựng rõ ràng với các phần như giới thiệu, dự án, kỹ năng và liên hệ, giúp người xem dễ dàng theo dõi thông tin. Thiết kế tập trung vào việc làm nổi bật nội dung và sản phẩm cá nhân, đồng thời giữ được sự gọn gàng và chuyên nghiệp. Giao diện ưu tiên trải nghiệm người dùng với cách trình bày trực quan, dễ đọc và có sự phân cấp thông tin hợp lý. Các hiệu ứng hover và chuyển động nhẹ được áp dụng nhằm tăng tính tương tác, giúp website trở nên sinh động nhưng không gây rối mắt. Tổng thể, website hướng đến việc thể hiện hình ảnh một Graphic Designer trẻ, sáng tạo, có định hướng rõ ràng và khả năng phát triển trong lĩnh vực thiết kế.
